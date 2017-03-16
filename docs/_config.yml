@@ -9,12 +9,12 @@ gems:
 # If you are hosting it on Github for some project with name 'projectname', then the url and baseurl should look like:
 #url: "http://username.github.io/projectname"
 #baseurl: "/projectname"
-url: ""
+url: "https://enan0.github.io/programacionJava"
 enforce_ssl: ""
-baseurl: "/jekyllBasic"
+baseurl: "/programacionJava"
 
 # Title of website
-title: Project Name
+title: Programación en Java
 
 #Default keywords (used if no keywords are specified on a page basis)
 keywords: test1, test2, etc
@@ -38,16 +38,16 @@ nav-links:
 
 # If the values are empty, they are ignored 
 profile:
-  name: Babji Chetty
-  email: Your-Email
+  name: Maximiliano Torchio
+  email: mxtorchio@gmail.com	
   facebook: your-fb-id
-  github: your-github-id 
+  github: enan0 
   twitter: your-twitter-id
   linkedin: your-linkedin-id
   stackoverflow: your-stackoverflow-id
 
 # To display link in the footer section
-pretty-url: "bchetty.com"
+pretty-url: "github.com/enan0"
 
 # --- Misc --- #
 
