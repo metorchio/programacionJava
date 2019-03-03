@@ -13,13 +13,14 @@ import java.io.PrintWriter;
 // Extend HttpServlet class
 public class HelloWorldServlet extends HttpServlet {
 
-    final static Logger logger = Logger.getLogger(HelloWorldServlet.class);
+	private static final long serialVersionUID = -7016272265494965171L;
+	final static Logger logger = Logger.getLogger(HelloWorldServlet.class);
     private String message;
 
     public void init() throws ServletException {
         // Do required initialization
         logger.info("===============[ INIT ]==================");
-        message = "Hello World";
+        message = "Hello World Servlet";
         Boolean debug = getInitParameter("debug").equals("true");
         logger.info(">>>> Input Param 'debug':  " +  debug);
     }
@@ -27,7 +28,7 @@ public class HelloWorldServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         logger.info("Clase: HelloWorldServlet - Método: doGet");
-        logger.info(">>>> Request: " + request.toString());
+        logger.info(">>>> Request Query String: " + request.getQueryString() );
 
         // Set response content type
         response.setContentType("text/html");
@@ -35,7 +36,8 @@ public class HelloWorldServlet extends HttpServlet {
         // Actual logic goes here.
         PrintWriter out = response.getWriter();
         out.println("<h1>" + message + "</h1>");
-        logger.info(">>>> Response: " + response.toString());
+        out.println("<br/> revisar el log...");
+        logger.info(">>>> Termine.");
     }
 
     public void destroy() {

@@ -4,7 +4,6 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
 
-
     <servlet>
         <servlet-name>My Loggued Servlet</servlet-name>
         <servlet-class>ar.com.maxo.servlet.HelloWorldServlet</servlet-class>
@@ -17,7 +16,6 @@
     <servlet-mapping>
         <servlet-name>My Loggued Servlet</servlet-name>
         <url-pattern>/myservlet</url-pattern>
-
     </servlet-mapping>
 
 </web-app>
