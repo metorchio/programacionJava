@@ -7,6 +7,9 @@ pipeline {
     }
     stages {
         stage('Build') {
+			dir("helloMaven") {
+				sh "pwd"
+			}
             steps {
                 sh 'mvn -B -DskipTests clean package' 
             }
