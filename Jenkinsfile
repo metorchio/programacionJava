@@ -7,11 +7,8 @@ pipeline {
     }
     stages {
         stage('Build') {
-			dir("helloMaven") {
-				sh "pwd"
-			}
             steps {
-                sh 'mvn -B -DskipTests clean package' 
+                sh 'mvn -f /helloMaven/pom.xml -B -DskipTests clean package' 
             }
         }
     }
