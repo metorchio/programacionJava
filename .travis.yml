@@ -5,8 +5,9 @@ deploy:
   verbosity: debug
   on: feature/springBootApp
 branches:
-  only: ["feature/springBootApp"]
+  only:
+  - feature/springBootApp
 before_install:
-- openssl aes-256-cbc -K $encrypted_86fda2a01824_key -iv $encrypted_86fda2a01824_iv
+- openssl aes-256-cbc -K $encrypted_935ba8cfcaf9_key -iv $encrypted_935ba8cfcaf9_iv
   -in BenitaAccesorios-ec8b4a4ded8e.json.enc -out .\\BenitaAccesorios-ec8b4a4ded8e.json
   -d
