@@ -4,6 +4,7 @@ deploy:
   project: benita-accesorios
   verbosity: debug
   on: feature/springBootApp
+before_install: cd springBootApp
 branches:
   only:
   - feature/springBootApp
