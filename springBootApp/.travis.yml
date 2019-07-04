@@ -2,6 +2,7 @@ deploy:
   provider: gae
   keyfile: BenitaAccesorios-ec8b4a4ded8e.json
   project: benita-accesorios
+  verbosity: debug
   on: feature/springBootApp
 before_install:
 - openssl aes-256-cbc -K $encrypted_86fda2a01824_key -iv $encrypted_86fda2a01824_iv
