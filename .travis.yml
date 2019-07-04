@@ -1,3 +1,4 @@
+language: java
 deploy:
   provider: gae
   keyfile: BenitaAccesorios-ec8b4a4ded8e.json
@@ -7,3 +8,7 @@ deploy:
 branches:
   only:
   - feature/springBootApp
+before_install:
+- openssl aes-256-cbc -K $encrypted_935ba8cfcaf9_key -iv $encrypted_935ba8cfcaf9_iv
+  -in BenitaAccesorios-a38564afa3f3.json.enc -out .\\BenitaAccesorios-a38564afa3f3.json
+  -d
