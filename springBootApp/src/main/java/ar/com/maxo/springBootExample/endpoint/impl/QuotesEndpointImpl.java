@@ -3,7 +3,6 @@ package ar.com.maxo.springBootExample.endpoint.impl;
 import ar.com.maxo.springBootExample.SpringBootApp;
 import ar.com.maxo.springBootExample.domain.ChuckNorrisQuote;
 import ar.com.maxo.springBootExample.domain.Quote;
-import ar.com.maxo.springBootExample.endpoint.BaseEndpoint;
 import ar.com.maxo.springBootExample.endpoint.QuotesEndpoint;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
