@@ -1,9 +1,3 @@
-deploy:
-  provider: gae
-  keyfile: BenitaAccesorios-ec8b4a4ded8e.json
-  project: benita-accesorios
-  verbosity: debug
-  on: feature/springBootApp
 branches:
   only:
   - feature/springBootApp
@@ -13,3 +7,4 @@ env:
 before_install:
   - openssl aes-256-cbc -k "$super_secret_password" -in BenitaAccesorios-4690e9057548.json.enc -out BenitaAccesorios-4690e9057548.json -d
   - cd springBootApp
+  - ls

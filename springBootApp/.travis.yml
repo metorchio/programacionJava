@@ -1,0 +1,6 @@
+language: java
+deploy:
+  provider: gae
+  keyfile: BenitaAccesorios-ec8b4a4ded8e.json
+  project: benita-accesorios
+  verbosity: debug
