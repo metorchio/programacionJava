@@ -1,6 +1,9 @@
 branches:
   only:
     - feature/springBootApp
+cache:
+  directories:
+    - $HOME/.m2
 
 env:
   global:
@@ -19,6 +22,7 @@ script: ./mvnw clean install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 
 deploy:
   provider: gae
+  skip_cleanup: true
   keyfile: keyfile.json
   project: benita-accesorios
   verbosity: debug
