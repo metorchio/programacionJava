@@ -24,10 +24,14 @@ after_success:
   - tar -xzf  google-cloud-sdk-218.0.0-linux-x86.tar.gz
   - CLOUDSDK_CORE_DISABLE_PROMPTS=1 ./google-cloud-sdk/install.sh
   - ./google-cloud-sdk/bin/gcloud components install app-engine-java --quiet
+  - echo '>>>>> Me autentico a GAE'
+  - ./google-cloud-sdk/bin/gcloud auth activate-service-account --project benita-accesorios --key-file=keyfile.json
+  - echo '>>>>> Ejecuto deploy con mvnw...'
+  - ./mvnw -DskipTests appengine:deploy
 
-deploy:
-  provider: script
-  skip_cleanup: true
-  script: chmod +x ./deploy.sh && ./deploy.sh
-  on:
-    branch: feature/springBootApp
+#deploy:
+#  provider: script
+#  skip_cleanup: true
+#  script: chmod +x ./deploy.sh && ./deploy.sh
+#  on:
+#    branch: feature/springBootApp
