@@ -25,6 +25,7 @@ deploy:
   skip_cleanup: true
   keyfile: keyfile.json
   project: benita-accesorios
+  config: src/main/webapp/WEB-INF/appengine-web.xml
   verbosity: debug
   on:
     branch: feature/springBootApp
