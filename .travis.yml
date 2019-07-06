@@ -26,8 +26,8 @@ after_success:
 
 deploy:
   provider: script
+  skip_cleanup: true
   script: deploy.sh
-#  skip_cleanup: true
 #  keyfile: keyfile.json
 #  project: benita-accesorios
 #  config: src/main/webapp/WEB-INF/appengine-web.xml
