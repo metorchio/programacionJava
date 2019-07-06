@@ -22,7 +22,7 @@ script: ./mvnw clean install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 after_success:
   - wget https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-218.0.0-linux-x86.tar.gz
   - tar -xzf  google-cloud-sdk-218.0.0-linux-x86.tar.gz
-  - ./google-cloud-sdk/install.sh
+  - CLOUDSDK_CORE_DISABLE_PROMPTS=1 ./google-cloud-sdk/install.sh
 
 deploy:
   provider: script
