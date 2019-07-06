@@ -6,8 +6,8 @@ env:
   global:
     secure: ZJgHoLc9Jm8KP4+xRLma9svogZlVPfsyxVHYJgsY3P7oBD2qZFlG2di/gvmFWOEM3pJTYnOzxycI+5DZ+vRT4EtychsPIsU+aR/T17J+2uzZCTqj29Fb4NELYDVCMrQ8dowFzM4+zyuKrTfpG9CinRgHdM7lqz21aojtnMEVX9hV/WM/IiQd/USQzV7L0++INUmF/vFquNDf8RlCJsniiO6lykEA5xuz93qVofDP1p5q2dSgDB222RQcLnh/jSVeufxPMDTz8ORwYmIb/ntKFgGlHyDEr5RwA/6GB6L9ujDogiNXykSnx1WZ48mhITPb3aUE3j1wvPXKenLO2NRQKF//OkXfrJ5Jwpzj61r9DGXBe3zqe5SW4yoH9VwQyNw5aoFKRiYLB2j1XEzjGeMmajOXQId1FLQbWbqIrFN4sDqkRxPXECfy7juzp2nEfThxin+XIQojXzA/ZkRQhXtwfFLRtLmkcrM2l4guuWYRzXpWHty6t8tJnuG6rHAVK5lud83OAaT2AScPoynY0k/tYRcxs41loqnZh1WP8udU5G1OplwR7c44yn3zXiWSSfsCle4wzf0MzpQQOAoFQ8o+EtTWAT2bhQkbR1lY02if7bSPCw9NympD3UcZ+1J+M8SI6epe1AyTaoj4+gNClr+AN0VRznoL6c088vFqyz1ZbN8=
 before_install:
-  - openssl aes-256-cbc -k $super_secret_password -in BenitaAccesorios-4690e9057548.json.enc -out BenitaAccesorios-4690e9057548.json -d
   - cd springBootApp
+  - openssl aes-256-cbc -k $super_secret_password -in ../BenitaAccesorios-4690e9057548.json.enc -out BenitaAccesorios-4690e9057548.json -d
   - chmod +x mvnw
   - ls
 
