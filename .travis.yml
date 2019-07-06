@@ -23,6 +23,4 @@ deploy:
   project: benita-accesorios
   verbosity: debug
   on:
-    branches:
-      only:
-        - feature/springBootApp
+    branch: feature/springBootApp
