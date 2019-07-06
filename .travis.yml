@@ -19,13 +19,18 @@ jdk: oraclejdk8
 install: true
 script: ./mvnw clean install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 
+after_success:
+  - wget https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-218.0.0-linux-x86.tar.gz
+  - tar -xzf  google-cloud-sdk-218.0.0-linux-x86.tar.gz
+  - ./google-cloud-sdk/install.sh
 
 deploy:
-  provider: gae
-  skip_cleanup: true
-  keyfile: keyfile.json
-  project: benita-accesorios
-  config: src/main/webapp/WEB-INF/appengine-web.xml
-  verbosity: debug
+  provider: script
+  script: deploy.sh
+#  skip_cleanup: true
+#  keyfile: keyfile.json
+#  project: benita-accesorios
+#  config: src/main/webapp/WEB-INF/appengine-web.xml
+#  verbosity: debug
   on:
     branch: feature/springBootApp
