@@ -10,6 +10,7 @@ public class MainApp {
 		
 		HelloWorld obj = (HelloWorld) context.getBean("helloBean");
 		obj.printHello();
+
 	}
 
 }
