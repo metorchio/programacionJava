@@ -1,0 +1,88 @@
+package ar.com.osde.wmq.configuration;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
+
+import org.apache.log4j.Logger;
+
+public class WMQPropertiesReader {
+	private static Logger logger = Logger.getLogger(WMQPropertiesReader.class);
+	private final static String JBOSS_CONF_FOLDER = "jboss.server.config.url";
+	private final static String PROPERTIES_FILE = "message-producer-wmq.properties";
+	private final static String OSDE_FRAMEWORK_PROPERTIES_FILE = "osde-framework.properties";
+	private static Properties wmqProperties = null;
+	
+	static {
+		//Se realiza la carga de las propiedades a través de un método de inicialización estático,
+		//para evitar el excesivo acceso a disco.
+		wmqProperties = getPropertiesFromOsdeFramework();
+		logger.info("Propiedades WMQ cargadas desde archivo: " + OSDE_FRAMEWORK_PROPERTIES_FILE);
+	}
+	
+	public final static String QUEUE_MANAGER = "wmq.queueManager";
+	public final static String QUEUE_NAME = "wmq.queue.name";
+	public final static String QUEUE_CHANNEL = "wmq.channel";
+	public final static String QUEUE_HOSTNAME = "wmq.hostName";
+	public final static String QUEUE_PORT = "wmq.port";
+	public final static String QUEUE_PRIORITY = "wmq.priority";
+	public final static String THP_KEEP_ALIVE_TIME = "threadPool.keepAliveTime";
+	public final static String THP_CORE_POOL_SIZE = "threadPool.corePoolSize";
+	public final static String THP_MAXIMUM_POOL_SIZE = "threadPool.maximumPoolSize";
+	public final static String THP_POOL_QUEUE_CAPACITY = "threadPool.queueCapacity";
+
+
+	public String getProperty(String property) {
+		String propertyValue = null;
+		propertyValue = getProperties().getProperty( property );
+		logger.info("Propiedad WMQ :: " + property);
+
+		return propertyValue;
+	}
+	
+	public Properties getProperties() {
+		return wmqProperties;
+	}
+	
+	private static String getPropertiesFilePath() {
+		String jbossConfPath = System.getProperty(JBOSS_CONF_FOLDER);
+		if ( jbossConfPath.startsWith("file:") ){
+			jbossConfPath = jbossConfPath.substring(6);
+		}
+		
+		StringBuilder wmqPropertiesPath = new StringBuilder( jbossConfPath );
+		wmqPropertiesPath.append(PROPERTIES_FILE);
+		
+		return wmqPropertiesPath.toString();
+	}
+	
+	private static Properties getPropertiesFromFile(String filePath) {
+		Properties wmqProperties = null;
+		try {
+			FileInputStream file;
+			file = new FileInputStream( filePath );
+			wmqProperties = new Properties();
+			wmqProperties.load(file);
+			file.close();
+		} catch (IOException e){
+			logger.error("Error al abrir el archivo de configuraciones para WMQ: "+filePath, e);
+		}
+		
+		return wmqProperties;
+	}
+	
+	private static Properties getPropertiesFromOsdeFramework() {
+		Properties wmqProperties = null;
+		try {
+			InputStream osdeFrameworkPropertiesFile = Thread.currentThread()
+					.getContextClassLoader().getResourceAsStream(OSDE_FRAMEWORK_PROPERTIES_FILE);
+			wmqProperties = new Properties();
+			wmqProperties.load(osdeFrameworkPropertiesFile);
+			osdeFrameworkPropertiesFile.close();
+		} catch (IOException e) {
+			logger.error("Error al abrir el archivo 'osde-framework.properties' para WMQ", e);
+		}
+		return wmqProperties;
+	}
+}
