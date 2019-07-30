@@ -1,0 +1,12 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<bean id="helloBean" class="ar.com.maxo.javaExample.HelloWorldImpl">
+		<property name="name" value="Maxo..#" />
+	</bean>
+	
+	<bean id="helloBean.2" class="ar.com.maxo.javaExample.GoodbyeWorldImpl" />
+
+</beans>

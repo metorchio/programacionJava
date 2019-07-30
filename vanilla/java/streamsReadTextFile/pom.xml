@@ -1,0 +1,51 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <!--parent>
+        <groupId>ar.com.maxo</groupId>
+        <version>0.0.1-SNAPSHOT</version>
+        <artifactId>CloudDeNovedades</artifactId>
+    </parent-->
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>ar.com.maxo.readTextFile</groupId>
+    <artifactId>streamsReadTextFile</artifactId>
+    <!--version>${parent.version}</version-->
+    <version>0.0.1-SNAPSHOT</version>
+    <name>Read text file with BufferRead and Streams Example</name>
+    <description>Aplicación Maven con Spring</description>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.1.1</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <classpathPrefix>lib/</classpathPrefix>
+                            <mainClass>ar.com.maxo.readTextFile.MainApp</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.4.0</version>
+                <configuration>
+                    <executable>java</executable>
+                    <mainClass>ar.com.maxo.readTextFile.MainApp</mainClass>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
