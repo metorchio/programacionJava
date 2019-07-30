@@ -1,4 +1,4 @@
-package ar.com.maxo.javaExample;
+package ar.com.maxo.helloMaven;
 
 public class HelloWorldImpl implements GreetWorld {
 	

@@ -1,4 +1,4 @@
-package ar.com.maxo.javaExample;
+package ar.com.maxo.helloMaven;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
