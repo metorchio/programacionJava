@@ -40,3 +40,6 @@ build/
 
 ### API keys ###
 BenitaAccesorios-*.json
+
+### Gradle ###
+.gradle/
