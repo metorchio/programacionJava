@@ -1,6 +1,7 @@
 // A Java program for a Server
 import java.net.*;
 import java.io.*;
+import java.util.concurrent.*;
 
 public class Server
 {
@@ -8,51 +9,37 @@ public class Server
     private Socket socket = null;
     private ServerSocket server = null;
     private DataInputStream in =  null;
+	private ExecutorService executor = null;
 
     // constructor with port
     public Server(int port)
     {
         // starts server and waits for a connection
-        try
+        try(ServerSocket server = new ServerSocket(port))
         {
-            server = new ServerSocket(port);
+			executor = Executors.newFixedThreadPool(5);
             System.out.println("Server started");
 
             System.out.println("Waiting for a client ...");
 
-            socket = server.accept();
-            System.out.println("Client accepted");
-
-            // takes input from the client socket
-            in = new DataInputStream(
-                    new BufferedInputStream(socket.getInputStream()));
-
-            String line = "";
-
-            // reads message from client until "Over" is sent
-            while (!line.equals("Over"))
-            {
-                try
-                {
-                    line = in.readUTF();
-                    System.out.println(line);
-
-                }
-                catch(IOException i)
-                {
-                    System.out.println(i);
-                }
-            }
-            System.out.println("Closing connection");
+			while(true){
+				
+				socket = server.accept();
+				Runnable worker = new RequestHandler(socket);
+				executor.execute(worker);
+			}
 
             // close connection
-            socket.close();
-            in.close();
+            //socket.close();
         }
         catch(IOException i)
         {
             System.out.println(i);
-        }
+        } finally {
+			if( executor != null ){
+				executor.shutdown();
+			}
+		}		
     }
 
     public static void main(String args[])
