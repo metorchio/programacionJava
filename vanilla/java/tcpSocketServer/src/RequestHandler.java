@@ -12,7 +12,7 @@ public class RequestHandler implements Runnable
     }
 
     public void run(){
-        System.out.println("Client accepted");
+        System.out.println("Client accepted >>> from: " + client.toString() + " in " + Thread.currentThread().getName());
 
         // takes input from the client socket
         try{
@@ -27,7 +27,7 @@ public class RequestHandler implements Runnable
                 try
                 {
                     line = in.readUTF();
-                    System.out.println(">>>> Receive message from: " + Thread.currentThread().getName() + " >> " + line);
+                    System.out.println("Receive message >>> from: " + client.toString() + " in " + Thread.currentThread().getName() + " >>> " + line);
 
                 }
                 catch(IOException i)
