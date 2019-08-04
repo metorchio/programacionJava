@@ -5,8 +5,8 @@ import java.util.Properties;
 public class ThreadPoolProperties {
 	//default properties
 	private static final String KEEP_ALIVE_TIME = "0";
-    private static final String CORE_POOL_SIZE = "10";
-    private static final String MAXIMUM_POOL_SIZE = "50";
+    private static final String CORE_POOL_SIZE = "2";
+    private static final String MAXIMUM_POOL_SIZE = "2";
     private static final String QUEUE_CAPACITY = "1";
 	
 	private long keepAliveTime;
@@ -28,6 +28,7 @@ public class ThreadPoolProperties {
 				PropertiesReader.THP_POOL_QUEUE_CAPACITY, QUEUE_CAPACITY );
 		setThreadPoolProperties(keepAliveTime, corePoolSize, maximumPoolSize, poolQueueCapacity);
 		*/
+		setThreadPoolProperties(KEEP_ALIVE_TIME, CORE_POOL_SIZE, MAXIMUM_POOL_SIZE, QUEUE_CAPACITY);
 	}
 
 
