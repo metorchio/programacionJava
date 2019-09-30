@@ -1,17 +1,17 @@
-#Hello Java
+# Hello Java
 
 Proyecto básico de Java.
 
-##Objetivo
+## Objetivo
 Instalar lo necesario para ejecutar el código propuesto. Compilar y ejecutar la clase MainApp, por consola, sin necesidad de utilizar herramientras extras.
 
-##Preparar entorno
-###Instalar Java
+## Preparar entorno
+### Instalar Java
 a. Instalar JDK (Java Development Kit), agregandola en el path. <br/>
 ... hacer paso a paso ...
 
 
-###Compilar y ejecutar código
+### Compilar y ejecutar código
 a. Abrir una consola. <br/>
 b. Posicionarse en la carpeta del proyecto. <br/>
 c. Ejecutar: <br/>
@@ -28,7 +28,7 @@ Hello Java!!
 Hello Maxo !!
 ```
 
-###Compilar como archivo Jar y ejecutar código
+### Compilar como archivo Jar y ejecutar código
 a. Abrir una consola. <br/>
 b. Posicionarse en la carpeta del proyecto. <br/>
 c. Ejecutar: <br/>
@@ -47,7 +47,7 @@ Hello Java!!
 Hello Maxo !!
 ```
 
-##Links de interés
+## Links de interés
 * Home Java: <br/> https://docs.oracle.com/en/java/
 
 * Oracle Java Tutorials: <br/> https://docs.oracle.com/javase/tutorial/
